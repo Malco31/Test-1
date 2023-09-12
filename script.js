@@ -51,7 +51,7 @@ window.addEventListener('scroll', () => {
 
 
 // ANIMATED TEXT
-const text = "Full Stack Software Developer";
+const text = "Junior Software Developer";
 const typingText = document.getElementById("typing-text");
 let index = 0;
 
@@ -102,127 +102,158 @@ document.addEventListener("click", function(e){
 })
 
 
-// const prevBtn = document.getElementById("prev-btn");
-// const nextBtn = document.getElementById("next-btn");
-
-// prevBtn.addEventListener("click", () => {
-//   const checkedInput = document.querySelector("input[name='slider']:checked");
-//   const previousSibling = checkedInput.previousElementSibling || document.querySelector("input[name='slider']:last-of-type");
-//   previousSibling.checked = true;
-// });
-
-// nextBtn.addEventListener("click", () => {
-//   const checkedInput = document.querySelector("input[name='slider']:checked");
-//   const nextSibling = checkedInput.nextElementSibling || document.querySelector("input[name='slider']:first-of-type");
-//   nextSibling.checked = true;
-// });
 
 
-// get the previous and next buttons
-const prevButton = document.querySelector('.prev-button');
-const nextButton = document.querySelector('.next-button');
 
-// get the radio inputs and the labels
-const radios = document.querySelectorAll('input[name="slider"]');
-const labels = document.querySelectorAll('label');
+// Function to change the skill text based on the clicked icon
+function changeSkillText(skillName) {
+  var titleElement = document.querySelector('.skill-text-title h1');
+  var bodyElement = document.querySelector('.skill-text-body p');
 
-// initialize the current index to 0
-let currentIndex = 0;
-
-// function to show the current card
-function showCard(index) {
-  // uncheck all the radios and hide all the labels
-  for (let i = 0; i < radios.length; i++) {
-    radios[i].checked = false;
-    labels[i].classList.remove('show');
+  // Update the text based on the clicked skill icon
+  switch(skillName) {
+    case 'HTML':
+      titleElement.textContent = 'Frontend Language';
+      bodyElement.textContent = 'HTML is a markup language used for structuring and presenting content on the web.';
+      break;
+    case 'CSS':
+      titleElement.textContent = 'Frontend Language';
+      bodyElement.textContent = 'CSS is a style sheet language used for describing the look and formatting of a document written in HTML.';
+      break;
+    case 'JavaScript':
+      titleElement.textContent = 'Frontend Language';
+      bodyElement.textContent = 'JavaScript is a high-level programming language used for adding interactivity and dynamic behavior to web pages.';
+      break;
+    // Add cases for other skill icons
+    case 'Bootstrap':
+      titleElement.textContent = 'Frontend Framework';
+      bodyElement.textContent = 'Bootstrap is a popular front-end framework that provides a collection of pre-built HTML, CSS, and JavaScript components and tools. It is designed to help developers quickly and easily create responsive and mobile-friendly websites and web applications.';
+      break;
+    case 'Python':
+      titleElement.textContent = 'Backend Language';
+      bodyElement.textContent = "Python's versatility, extensive library ecosystem, and strong community support have contributed to its popularity. Its ease of use, readability, and scalability make it suitable for both beginners and experienced developers. Python continues to evolve and find applications in a wide range of industries, making it a powerful and widely adopted programming language.";
+      break;
+    case 'Django':
+      titleElement.textContent = 'Backend Framework';
+      bodyElement.textContent = "Django's strengths lie in its ability to accelerate the development process, promote code reusability, and maintain scalability. It follows best practices and conventions, allowing developers to focus on application logic rather than repetitive tasks. Django has become a popular choice for building robust and scalable web applications.";
+      break;
+    case 'Java':
+      titleElement.textContent = 'Backend Language';
+      bodyElement.textContent = "Java's popularity and versatility have made it one of the most widely adopted programming languages in the world. Its robustness, security, portability, and extensive ecosystem make it suitable for a wide range of applications across different industries.";
+      break;
+    case 'SQL':
+      titleElement.textContent = 'Backend Language';
+      bodyElement.textContent = "SQL (Structured Query Language) is a standard programming language used for managing and manipulating relational databases. It provides a set of commands and syntax for interacting with databases and performing various operations such as querying data, inserting, updating, and deleting records, creating and modifying database schemas, and more.";
+      break;
+    case 'Spring':
+      titleElement.textContent = 'Backend Framework';
+      bodyElement.textContent = "Spring is a popular Java-based framework that provides a comprehensive infrastructure for developing enterprise-level applications. It aims to simplify Java development by offering a cohesive and modular approach to building robust and scalable applications.";
+      break;
+    case 'Vue':
+      titleElement.textContent = 'Frontend Framework';
+      bodyElement.textContent = "Vue is a progressive JavaScript framework used for building user interfaces. With Vue, developers can create interactive web applications with ease. It emphasizes simplicity, flexibility, and efficiency, making it a popular choice among developers.";
+      break;
   }
-  // check the radio for the current index and show the label
-  radios[index].checked = true;
-  labels[index].classList.add('show');
-  // update the current index
-  currentIndex = index;
 }
 
-// function to show the previous card
-function prevCard() {
-  // calculate the index of the previous card
-  const prevIndex = currentIndex === 0 ? radios.length - 1 : currentIndex - 1;
-  showCard(prevIndex);
+
+const projects = [
+  {
+    name: 'Touriste',
+    description: 'Touriste is a travel website made for a real client. It is meant for users to go to the client\'s website to get in touch with them about booking a trip to almost anywhere in the world, on any budget.',
+    type: 'Group Project',
+    role: 'Full Stack',
+    highlights: 'HTML, CSS, Django, JavaScript, & OpenAI',
+    imageSrc: 'images/touriste-logo-3.png',
+    codeLink: 'https://www.touristeluxury.com'
+  },
+  {
+    name: 'ClockWise',
+    description: 'ClockWise is a time clock application that allows employees to easily clock in and out, tracks their working hours, and calculates their earnings. It provides users with a clear view of their earnings until the next pay period. The admin can access all user data, manage payroll, and add/delete users.',
+    type: 'Solo Project',
+    role: 'Full Stack',
+    highlights: 'HTML, Vue, & Django',
+    imageSrc: 'images/clockwise-logo.png',
+    codeLink: 'https://github.com/Malco31/ClockWise'
+  },
+  {
+    name: 'DataBank',
+    description: 'Databank is a simplified banking application that provides users with a simulated banking experience. Users can create accounts, easily deposit, withdraw, view their account balance, and get charged fees.',
+    type: 'Group Project',
+    role: 'Frontend',
+    highlights: 'Java & SQL',
+    imageSrc: 'images/databank-logo.png',
+    codeLink: 'https://github.com/Mike469/DataBank'
+  },
+  {
+    name: 'Translator',
+    description: 'The Translator is a versatile application that empowers users to seamlessly translate between multiple languages. With its intuitive interface, users can input text to be translated from one language to another. The Translator provides a reliable and efficient tool for bridging language barriers.',
+    type: 'Group Project',
+    role: 'Frontend',
+    highlights: 'Python',
+    imageSrc: 'images/translator-logo.png',
+    codeLink: 'https://replit.com/@unit-project-2/Translator-program'
+  },
+  {
+    name: 'MagiCard',
+    description: 'MagiCard is a dynamic application designed for fans of the popular game, Magic The Gathering. With MagiCard, users can unleash their creativity by creating personalized decks using a wide range of captivating and strategic cards. Explore the vast card database, where you can browse and search for specific cards to enhance your collection.',
+    type: 'Group Project',
+    role: 'Frontend',
+    highlights: 'Java, SQL, & Spring',
+    imageSrc: 'images/magicard-logo.png',
+    codeLink: 'https://github.com/NuzziVF/card-manager'
+  },
+  {
+    name: 'Subscriptify',
+    description: "Subscriptify is an application designed to simplify your subscription management. Users can easily create an account, allowing them to add their subscriptions to the system, which will be organized in a convenient table format. The application keeps track of the cost and payment due dates, calculates the total monthly expenses as well as the total yearly costs.",
+    type: 'Group Project',
+    role: 'Backend',
+    highlights: 'HTML, CSS, Django',
+    imageSrc: 'images/subscriptify-logo.png',
+    codeLink: 'https://github.com/coltfields23/Subscription-Manager'
+  },
+  {
+    name: 'WGT-Ecommerce Shop',
+    description: "Welcome to WGT, a sample ecommerce application where we've brewed up a digital oasis for tea lovers worldwide. Explore our tea catalog, learn about tea varieties, and discover new flavors. Join WGT today and steep yourself in the world of tea with ease and sophistication.",
+    type: "Solo Project",
+    role: "Full Stack",
+    highlights: "HTML, CSS, Javascript",
+    imageSrc: 'images/wgt.png',
+    codeLink: 'https://malco31.github.io/WGT-Ecommerce/',
+  },
+  // Add more project objects here...
+];
+
+let currentProjectIndex = 0;
+
+function updateProjectInfo() {
+  const project = projects[currentProjectIndex];
+  document.querySelector('.project-name').textContent = project.name;
+  document.querySelector('.project-text').textContent = project.description;
+  document.querySelector('.type-text').textContent = project.type;
+  document.querySelector('.role-text').textContent = project.role;
+  document.querySelector('.highlights-text').textContent = project.highlights;
+  document.querySelector('.right-project img').src = project.imageSrc;
+  document.querySelector('.code-link').setAttribute('href', project.codeLink);
 }
 
-// function to show the next card
-function nextCard() {
-  // calculate the index of the next card
-  const nextIndex = currentIndex === radios.length - 1 ? 0 : currentIndex + 1;
-  showCard(nextIndex);
-}
+document.querySelector('.prev-btn').addEventListener('click', function() {
+  currentProjectIndex = (currentProjectIndex - 1 + projects.length) % projects.length;
+  updateProjectInfo();
+});
 
-// show the initial card
-showCard(currentIndex);
+document.querySelector('.nxt-btn').addEventListener('click', function() {
+  currentProjectIndex = (currentProjectIndex + 1) % projects.length;
+  updateProjectInfo();
+});
 
-
-// const skillCard2 = document.querySelector('.skill-card-2');
-// let isDown = false;
-// let startX;
-// let scrollLeft;
-
-// skillCard2.addEventListener('mousedown', (e) => {
-//   isDown = true;
-//   startX = e.pageX - skillCard2.offsetLeft;
-//   scrollLeft = skillCard2.scrollLeft;
-// });
-
-// skillCard2.addEventListener('mouseleave', () => {
-//   isDown = false;
-// });
-
-// skillCard2.addEventListener('mouseup', () => {
-//   isDown = false;
-// });
-
-// skillCard2.addEventListener('mousemove', (e) => {
-//   if (!isDown) return;
-//   e.preventDefault();
-//   const x = e.pageX - skillCard2.offsetLeft;
-//   const walk = (x - startX) * 3; // adjust the scrolling speed
-//   skillCard2.scrollLeft = scrollLeft - walk;
-// });
+updateProjectInfo();
 
 
-// const skillCard1 = document.querySelector('.skill-card-1');
-// let isDown1 = false;
-// let startX1;
-// let scrollLeft1;
-
-// skillCard1.addEventListener('mousedown', (e) => {
-//   isDown1 = true;
-//   startX1 = e.pageX - skillCard1.offsetLeft;
-//   scrollLeft1 = skillCard1.scrollLeft1;
-// });
-
-// skillCard1.addEventListener('mouseleave', () => {
-//   isDown1 = false;
-// });
-
-// skillCard1.addEventListener('mouseup', () => {
-//   isDown1 = false;
-// });
-
-// skillCard1.addEventListener('mousemove', (e) => {
-//   if (!isDown1) return;
-//   e.preventDefault();
-//   const x = e.pageX - skillCard1.offsetLeft;
-//   const walk = (x - startX) * 3; // adjust the scrolling speed
-//   skillCard1.scrollLeft1 = scrollLeft1 - walk;
-// });
 
 
-const root = document.documentElement;
-const marqueeElementsDisplayed = getComputedStyle(root).getPropertyValue("--marquee-elements-displayed");
-const marqueeContent = document.querySelector("ul.marquee-content");
 
-root.style.setProperty("--marquee-elements", marqueeContent.children.length);
 
-for(let i=0; i<marqueeElementsDisplayed; i++) {
-  marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
-}
+
+
+
